@@ -1,4 +1,4 @@
-import { AbstractRequest } from '../abstract-request';
+import { AbstractRequest } from '../abstract-request.js';
 
 /**
  * Request class for updating an administrator attribute definition.

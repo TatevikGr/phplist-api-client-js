@@ -1,4 +1,4 @@
-import { SubscriberListCollection } from '../response/subscribers/subscriber-list-collection';
+import { SubscriberListCollection } from '../response/subscribers/subscriber-list-collection.js';
 
 /**
  * Client for message/list association endpoints.

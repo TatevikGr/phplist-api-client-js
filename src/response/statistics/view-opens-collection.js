@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { ViewOpen } from '../../entity/statistics/view-open';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { ViewOpen } from '../../entity/statistics/view-open.js';
 
 export class ViewOpensCollection extends AbstractCollectionResponse {
   processItems(items) {

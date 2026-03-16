@@ -1,5 +1,5 @@
-import { Administrator } from '../entity/administrator';
-import { AuthenticationException } from '../exception';
+import { Administrator } from '../entity/administrator.js';
+import { AuthenticationException } from '../exception.js';
 
 /**
  * Client for identity-related API endpoints.

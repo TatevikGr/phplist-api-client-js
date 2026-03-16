@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from './abstract-collection-response';
-import { Template } from '../entity/template';
+import { AbstractCollectionResponse } from './abstract-collection-response.js';
+import { Template } from '../entity/template.js';
 
 export class TemplateCollection extends AbstractCollectionResponse {
   processItems(items) {

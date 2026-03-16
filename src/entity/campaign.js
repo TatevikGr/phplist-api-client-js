@@ -1,9 +1,9 @@
-import { Template } from './template';
-import { Content } from './message/content';
-import { Format } from './message/format';
-import { Metadata } from './message/metadata';
-import { Schedule } from './message/schedule';
-import { Options } from './message/options';
+import { Template } from './template.js';
+import { Content } from './message/content.js';
+import { Format } from './message/format.js';
+import { Metadata } from './message/metadata.js';
+import { Schedule } from './message/schedule.js';
+import { Options } from './message/options.js';
 
 export class Campaign {
   /**

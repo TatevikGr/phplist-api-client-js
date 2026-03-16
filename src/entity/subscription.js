@@ -1,5 +1,5 @@
-import { Subscriber } from './subscriber';
-import { SubscriberList } from './subscriber-list';
+import { Subscriber } from './subscriber.js';
+import { SubscriberList } from './subscriber-list.js';
 
 export class Subscription {
   /**

@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { SubscriberHistory } from '../../entity/subscriber-history';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { SubscriberHistory } from '../../entity/subscriber-history.js';
 
 export class SubscriberHistoryCollection extends AbstractCollectionResponse {
   processItems(items) {

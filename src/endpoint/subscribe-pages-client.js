@@ -1,4 +1,4 @@
-import { SubscribePage } from '../entity/subscribe-page';
+import { SubscribePage } from '../entity/subscribe-page.js';
 
 /**
  * Client for subscribe page-related API endpoints.

@@ -1,5 +1,5 @@
-import { AbstractResponse } from './abstract-response';
-import { CursorPagination } from './cursor-pagination';
+import { AbstractResponse } from './abstract-response.js';
+import { CursorPagination } from './cursor-pagination.js';
 
 export class AbstractCollectionResponse extends AbstractResponse {
   /**

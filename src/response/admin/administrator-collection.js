@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { Administrator } from '../../entity/administrator';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { Administrator } from '../../entity/administrator.js';
 
 export class AdministratorCollection extends AbstractCollectionResponse {
   processItems(items) {

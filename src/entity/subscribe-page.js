@@ -1,4 +1,4 @@
-import { Administrator } from './administrator';
+import { Administrator } from './administrator.js';
 
 export class SubscribePage {
   /**

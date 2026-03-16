@@ -1,5 +1,5 @@
-import { Administrator } from './administrator';
-import { AdminAttributeDefinition } from './admin-attribute-definition';
+import { Administrator } from './administrator.js';
+import { AdminAttributeDefinition } from './admin-attribute-definition.js';
 
 export class AdminAttributeValue {
   /**

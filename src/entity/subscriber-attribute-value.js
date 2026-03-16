@@ -1,5 +1,5 @@
-import { Subscriber } from './subscriber';
-import { SubscriberAttributeDefinition } from './subscriber-attribute-definition';
+import { Subscriber } from './subscriber.js';
+import { SubscriberAttributeDefinition } from './subscriber-attribute-definition.js';
 
 export class SubscriberAttributeValue {
   /**

@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { SubscriberAttributeValue } from '../../entity/subscriber-attribute-value';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { SubscriberAttributeValue } from '../../entity/subscriber-attribute-value.js';
 
 export class SubscriberAttributeValueCollection extends AbstractCollectionResponse {
   processItems(items) {

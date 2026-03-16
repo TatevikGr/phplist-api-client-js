@@ -1,7 +1,7 @@
-import { AdminAttributeDefinition } from '../entity/admin-attribute-definition';
-import { AdminAttributeValue } from '../entity/admin-attribute-value';
-import { AdminAttributeDefinitionCollection } from '../response/admin/admin-attribute-definition-collection';
-import { AdminAttributeValueCollection } from '../response/admin/admin-attribute-value-collection';
+import { AdminAttributeDefinition } from '../entity/admin-attribute-definition.js';
+import { AdminAttributeValue } from '../entity/admin-attribute-value.js';
+import { AdminAttributeDefinitionCollection } from '../response/admin/admin-attribute-definition-collection.js';
+import { AdminAttributeValueCollection } from '../response/admin/admin-attribute-value-collection.js';
 
 /**
  * Client for administrator-related API endpoints.

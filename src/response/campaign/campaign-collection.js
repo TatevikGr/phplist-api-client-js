@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { Campaign } from '../../entity/campaign';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { Campaign } from '../../entity/campaign.js';
 
 export class CampaignCollection extends AbstractCollectionResponse {
   processItems(items) {

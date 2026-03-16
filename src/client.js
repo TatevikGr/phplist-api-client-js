@@ -4,7 +4,7 @@ import {
   AuthenticationException,
   NotFoundException,
   ValidationException
-} from './exception';
+} from './exception.js';
 
 export class Client {
   /**

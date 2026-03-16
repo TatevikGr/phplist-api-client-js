@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { TopDomain } from '../../entity/statistics/top-domain';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { TopDomain } from '../../entity/statistics/top-domain.js';
 
 export class TopDomainsCollection extends AbstractCollectionResponse {
   processItems(items) {

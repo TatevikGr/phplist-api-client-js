@@ -1,5 +1,5 @@
-import { AbstractCollectionResponse } from '../abstract-collection-response';
-import { AdminAttributeValue } from '../../entity/admin-attribute-value';
+import { AbstractCollectionResponse } from '../abstract-collection-response.js';
+import { AdminAttributeValue } from '../../entity/admin-attribute-value.js';
 
 export class AdminAttributeValueCollection extends AbstractCollectionResponse {
   processItems(items) {

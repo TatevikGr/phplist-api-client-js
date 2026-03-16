@@ -1,8 +1,8 @@
-import { CampaignStatisticsCollection } from '../response/statistics/campaign-statistics-collection';
-import { ViewOpensCollection } from '../response/statistics/view-opens-collection';
-import { TopDomainsCollection } from '../response/statistics/top-domains-collection';
-import { DomainConfirmation } from '../entity/statistics/domain-confirmation';
-import { TopLocalPart } from '../entity/statistics/top-local-part';
+import { CampaignStatisticsCollection } from '../response/statistics/campaign-statistics-collection.js';
+import { ViewOpensCollection } from '../response/statistics/view-opens-collection.js';
+import { TopDomainsCollection } from '../response/statistics/top-domains-collection.js';
+import { DomainConfirmation } from '../entity/statistics/domain-confirmation.js';
+import { TopLocalPart } from '../entity/statistics/top-local-part.js';
 
 /**
  * Client for statistics and analytics-related API endpoints.

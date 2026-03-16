@@ -1,6 +1,6 @@
-import { Subscriber } from '../entity/subscriber';
-import { SubscriberHistoryCollection } from '../response/subscribers/subscriber-history-collection';
-import { SubscriberCollection } from '../response/subscribers/subscriber-collection';
+import { Subscriber } from '../entity/subscriber.js';
+import { SubscriberHistoryCollection } from '../response/subscribers/subscriber-history-collection.js';
+import { SubscriberCollection } from '../response/subscribers/subscriber-collection.js';
 
 export class SubscribersClient {
   /**
