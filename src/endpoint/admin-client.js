@@ -1,5 +1,5 @@
 import { Administrator } from '../entity/administrator.js';
-import { AdministratorCollection } from '../response/admin/administrator-collection.js';
+import { AdministratorCollection } from '../response/index.js';
 
 /**
  * Client for administrator-related API endpoints.

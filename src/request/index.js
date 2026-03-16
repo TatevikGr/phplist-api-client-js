@@ -22,7 +22,6 @@ export * from './subscriber/export-subscriber-request.js';
 export * from './subscriber/get-subscriber-history-request.js';
 export * from './subscriber/import-subscribers-request.js';
 export * from './subscriber/subscribers-filter-request.js';
-export * from './subscriber/update-subscriber-attribute-definition-request.js';
 export * from './subscriber/update-subscriber-request.js';
 
 // Template requests

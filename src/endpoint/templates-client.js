@@ -1,5 +1,5 @@
 import { Template } from '../entity/template.js';
-import { TemplateCollection } from '../response/template-collection.js';
+import { TemplateCollection } from '../response/index.js';
 
 /**
  * Client for templates-related API endpoints.

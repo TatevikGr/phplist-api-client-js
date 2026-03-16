@@ -1,5 +1,5 @@
 import { Campaign } from '../entity/campaign.js';
-import { CampaignCollection } from '../response/campaign/campaign-collection.js';
+import { CampaignCollection } from '../response/index.js';
 
 /**
  * Client for campaign-related API endpoints.

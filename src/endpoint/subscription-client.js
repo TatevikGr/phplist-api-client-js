@@ -1,7 +1,6 @@
 import { SubscriberList } from '../entity/subscriber-list.js';
 import { Subscription } from '../entity/subscription.js';
-import { SubscriberCollection } from '../response/subscribers/subscriber-collection.js';
-import { SubscriberListCollection } from '../response/subscribers/subscriber-list-collection.js';
+import { SubscriberCollection, SubscriberListCollection } from '../response/index.js';
 
 /**
  * Client for subscription-related API endpoints.

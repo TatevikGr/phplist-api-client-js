@@ -1,6 +1,5 @@
 import { Subscriber } from '../entity/subscriber.js';
-import { SubscriberHistoryCollection } from '../response/subscribers/subscriber-history-collection.js';
-import { SubscriberCollection } from '../response/subscribers/subscriber-collection.js';
+import { SubscriberHistoryCollection, SubscriberCollection } from '../response/index.js';
 
 export class SubscribersClient {
   /**

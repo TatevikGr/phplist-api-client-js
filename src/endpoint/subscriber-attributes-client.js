@@ -1,7 +1,6 @@
 import { SubscriberAttributeDefinition } from '../entity/subscriber-attribute-definition.js';
 import { SubscriberAttributeValue } from '../entity/subscriber-attribute-value.js';
-import { SubscriberAttributeCollection } from '../response/subscribers/subscriber-attribute-collection.js';
-import { SubscriberAttributeValueCollection } from '../response/subscribers/subscriber-attribute-value-collection.js';
+import { SubscriberAttributeCollection, SubscriberAttributeValueCollection } from '../response/index.js';
 
 /**
  * Client for subscriber attribute-related API endpoints.
