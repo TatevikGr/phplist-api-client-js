@@ -7,7 +7,6 @@ export class UpdateSubscriberRequest extends AbstractRequest {
    * @param {boolean} [blacklisted=false]
    * @param {boolean} [htmlEmail=false]
    * @param {boolean} [disabled=false]
-   * @param {string|null} [additionalData=null]
    */
   constructor(
     email,
@@ -15,7 +14,6 @@ export class UpdateSubscriberRequest extends AbstractRequest {
     blacklisted = false,
     htmlEmail = false,
     disabled = false,
-    additionalData = null
   ) {
     super();
     this.email = email;
@@ -23,6 +21,5 @@ export class UpdateSubscriberRequest extends AbstractRequest {
     this.blacklisted = blacklisted;
     this.htmlEmail = htmlEmail;
     this.disabled = disabled;
-    this.additionalData = additionalData;
   }
 }
