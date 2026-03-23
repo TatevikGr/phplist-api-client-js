@@ -65,4 +65,17 @@ export class ListClient {
   async deleteList(listId) {
     await this.client.delete(`lists/${listId}`);
   }
+
+  /**
+   * Updates a subscriber list.
+   *
+   * @param {number} listId
+   * @param {CreateSubscriberListRequest} request
+   * @returns {Promise<SubscriberList>}
+   * @throws {ApiException}
+   */
+  async updateList(listId, request) {
+    const response = await this.client.put(`lists/${listId}`, request);
+    return new SubscriberList(response);
+  }
 }

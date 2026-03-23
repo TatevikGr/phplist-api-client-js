@@ -11,5 +11,6 @@ export class SubscriberList {
     this.subjectPrefix = data.subject_prefix || null;
     this.public = !!data.public;
     this.category = data.category || null;
+    this.rssFeed = data.rss_feed || null;
   }
 }
