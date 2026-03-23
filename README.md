@@ -43,3 +43,9 @@ const client = new Client('https://your-phplist-instance.com', {
   }
 });
 ```
+
+npm version patch
+npm version minor
+npm version major
+
+npm publish --access public

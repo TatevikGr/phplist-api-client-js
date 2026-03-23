@@ -5,6 +5,7 @@ import { AdminClient } from './src/endpoint/admin-client.js';
 import { BlacklistClient } from './src/endpoint/blacklist-client.js';
 import { BouncesClient } from './src/endpoint/bounces-client.js';
 import { CampaignClient } from './src/endpoint/campaign-client.js';
+import { ListClient } from './src/endpoint/list-client.js';
 import { ListMessagesClient } from './src/endpoint/list-messages-client.js';
 import { PasswordResetClient } from './src/endpoint/password-reset-client.js';
 import { StatisticsClient } from './src/endpoint/statistics-client.js';
@@ -26,6 +27,7 @@ export {
   BlacklistClient,
   BouncesClient,
   CampaignClient,
+  ListClient,
   ListMessagesClient,
   PasswordResetClient,
   StatisticsClient,
