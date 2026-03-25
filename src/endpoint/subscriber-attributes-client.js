@@ -28,7 +28,7 @@ export class SubscriberAttributesClient {
       queryParams.after_id = afterId;
     }
 
-    const data = await this.client.get('subscribers/attributes', queryParams);
+    const data = await this.client.get('attributes', queryParams);
     return new SubscriberAttributeCollection(data);
   }
 
