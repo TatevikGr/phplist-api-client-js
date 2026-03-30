@@ -99,15 +99,16 @@ export class SubscriptionClient {
   }
 
   /**
-   * Create subscription / add subscribers to list
+   * Create a subscription / add subscribers to list
    *
    * @param {string[]} emails
    * @param {number} listId
+   * @param {boolean} [autoConfirm=false] - Whether to automatically confirm subscriptions
    * @returns {Promise<Subscription[]>}
    * @throws {ApiException} If an API error occurs
    */
-  async createSubscriptions(emails, listId) {
-    const data = await this.client.post(`lists/${listId}/subscribers`, { emails });
+  async createSubscriptions(emails, listId, autoConfirm = false) {
+    const data = await this.client.post(`lists/${listId}/subscribers`, { emails, autoConfirm });
     return data.map(item => new Subscription(item));
   }
 
