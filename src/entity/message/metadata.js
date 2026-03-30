@@ -9,5 +9,6 @@ export class Metadata {
     this.bounceCount = data.bounce_count !== undefined ? Number(data.bounce_count) : null;
     this.entered = data.entered || null;
     this.sent = data.sent || null;
+    this.sendStart = data.send_start || null;
   }
 }
