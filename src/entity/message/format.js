@@ -5,6 +5,7 @@ export class Format {
   constructor(data) {
     this.htmlFormated = data.html_formated !== undefined ? !!data.html_formated : null;
     this.sendFormat = data.send_format || null;
-    this.formatOptions = data.format_options || null;
+    this.asText = data.as_text || 0;
+    this.asHtml = data.as_html || 0;
   }
 }
