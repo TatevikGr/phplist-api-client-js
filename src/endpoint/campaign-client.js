@@ -83,4 +83,29 @@ export class CampaignClient {
   async deleteCampaign(id) {
     await this.client.delete(`campaigns/${id}`);
   }
+
+  /**
+   * Send a campaign.
+   *
+   * @param {number} id - The campaign ID
+   * @returns {Promise<void>}
+   * @throws {NotFoundException} If the campaign is not found
+   * @throws {ApiException} If an API error occurs
+   */
+  async sendCampaign(id) {
+    await this.client.post(`campaigns/${id}/send`);
+  }
+
+  /**
+   * Resend a campaign to specified lists subscribers.
+   *
+   * @param {number} id - The campaign ID
+   * @param {number[]} listIds - The list IDs to resend to
+   * @returns {Promise<void>}
+   * @throws {NotFoundException} If the campaign is not found
+   * @throws {ApiException} If an API error occurs
+   */
+  async resendCampaign(id, listIds) {
+    await this.client.post(`campaigns/${id}/resend`, { list_ids: listIds });
+  }
 }
