@@ -72,6 +72,16 @@ export class CampaignClient {
     return new Campaign(data);
   }
 
+  async updateCampaignStatus(id, status) {
+    const data = await this.client.patch(`campaigns/${id}/status`, {status: status});
+    return new Campaign(data);
+  }
+
+  async copyCampaign(id) {
+    const data = await this.client.post(`campaigns/${id}/copy`);
+    return new Campaign(data);
+  }
+
   /**
    * Delete a campaign.
    *

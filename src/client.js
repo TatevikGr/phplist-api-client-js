@@ -117,6 +117,19 @@ export class Client {
     }
   }
 
+  async patch(endpoint, data = {}, headers = {}) {
+    try {
+      const response = await this.axiosInstance.patch(
+          this._normalizeEndpoint(endpoint),
+          data,
+          { headers: { ...this._getHeaders(), ...headers } }
+      );
+      return response.data;
+    } catch (error) {
+      throw this._handleError(error);
+    }
+  }
+
   async delete(endpoint, queryParams = {}, headers = {}) {
     try {
       const params = typeof queryParams.toJSON === 'function' ? queryParams.toJSON() : queryParams;
