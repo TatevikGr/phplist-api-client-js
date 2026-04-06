@@ -118,4 +118,17 @@ export class CampaignClient {
   async resendCampaign(id, listIds) {
     await this.client.post(`campaigns/${id}/resend`, { list_ids: listIds });
   }
+
+  /**
+   * Resend a campaign to specified lists subscribers.
+   *
+   * @param {number} id - The campaign ID
+   * @param {string[]} emails - The list IDs to resend to
+   * @returns {Promise<void>}
+   * @throws {NotFoundException} If the campaign is not found
+   * @throws {ApiException} If an API error occurs
+   */
+  async testSendCampaign(id, emails) {
+    await this.client.post(`campaigns/${id}/test-send`, { emails: emails });
+  }
 }
