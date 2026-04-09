@@ -17,14 +17,19 @@ export class CampaignClient {
    *
    * @param {number|null} [afterId=null] - The ID to start from for pagination
    * @param {number} [limit=25] - The maximum number of items to return
+   * @param {string|null} [subject=null] - The subject filter for campaigns
    * @returns {Promise<CampaignCollection>} The list of campaigns
    * @throws {ApiException} If an API error occurs
    */
-  async getCampaigns(afterId = null, limit = 25) {
+  async getCampaigns(afterId = null, limit = 25, subject = null) {
     const queryParams = { limit };
 
     if (afterId !== null) {
       queryParams.after_id = afterId;
+    }
+
+    if (subject !== null) {
+      queryParams.subject = subject;
     }
 
     const data = await this.client.get('campaigns', queryParams);
