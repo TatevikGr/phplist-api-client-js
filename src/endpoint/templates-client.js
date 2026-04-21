@@ -58,6 +58,20 @@ export class TemplatesClient {
   }
 
   /**
+   * Update template.
+   *
+   * @param {CreateTemplateRequest} request - The template request
+   * @param {int} templateId - The template ID
+   * @returns {Promise<Template>} The updated template
+   * @throws {ValidationException} If validation fails
+   * @throws {ApiException} If an API error occurs
+   */
+  async updateTemplate(request, templateId) {
+    const data = await this.client.put(`templates/${templateId}`, request);
+    return new Template(data);
+  }
+
+  /**
    * Delete a template.
    *
    * @param {string} id - The template ID
