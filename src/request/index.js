@@ -25,4 +25,4 @@ export * from './subscriber/subscribers-filter-request.js';
 export * from './subscriber/update-subscriber-request.js';
 
 // Template requests
-export * from './template/create-template-request.js';
+export * from './template/template-request.js';

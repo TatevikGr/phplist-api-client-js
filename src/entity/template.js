@@ -7,7 +7,7 @@ export class Template {
     this.title = data.title || '';
     this.text = data.text || null;
     this.content = data.content || null;
-    this.order = data.order || null;
+    this.listOrder = data.listOrder || null;
     this.images = Array.isArray(data.images) ? data.images : null;
   }
 }

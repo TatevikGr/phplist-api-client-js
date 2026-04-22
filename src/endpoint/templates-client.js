@@ -47,7 +47,7 @@ export class TemplatesClient {
   /**
    * Create a new template.
    *
-   * @param {CreateTemplateRequest} request - The template request
+   * @param {TemplateRequest} request - The template request
    * @returns {Promise<Template>} The created template
    * @throws {ValidationException} If validation fails
    * @throws {ApiException} If an API error occurs
@@ -60,7 +60,7 @@ export class TemplatesClient {
   /**
    * Update template.
    *
-   * @param {CreateTemplateRequest} request - The template request
+   * @param {TemplateRequest} request - The template request
    * @param {int} templateId - The template ID
    * @returns {Promise<Template>} The updated template
    * @throws {ValidationException} If validation fails
