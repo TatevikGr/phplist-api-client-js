@@ -82,4 +82,38 @@ export class TemplatesClient {
   async deleteTemplate(id) {
     await this.client.delete(`templates/${id}`);
   }
+
+  /**
+   * Get default template keys/descriptions.
+   *
+   * @returns {Promise<Array<{
+   *   key: string,
+   *   name: string,
+   *   description?: string,
+   * }>>}
+   * @throws {NotFoundException} If the template is not found
+   * @throws {ApiException} If an API error occurs
+   */
+  async getDefaultTemplates() {
+    const data = await this.client.get('templates/defaults');
+    return data.map(template => ({
+      key: template.key,
+      name: template.name,
+      description: template.description,
+    }));
+  }
+
+  /**
+   * Create a template from a default template key.
+   *
+   * @param {string} key - The default template key
+   * @returns {Promise<Template>} The created template
+   * @throws {ValidationException} If validation fails
+   * @throws {ApiException} If an API error occurs
+   */
+  async createFromDefault(key) {
+    const data = await this.client.post(`templates/defaults/${key}`);
+    return new Template(data);
+  }
+
 }
