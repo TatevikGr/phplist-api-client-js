@@ -1,3 +1,5 @@
+import { BounceCollection } from '../response/index.js';
+
 /**
  * Client for bounce-related API endpoints.
  */
@@ -17,6 +19,17 @@ export class BouncesClient {
    */
   async listRegex() {
     return await this.client.get('bounces/regex');
+  }
+
+  /**
+   * Get a list of all bounces.
+   *
+   * @returns {Promise<BounceCollection>} The list of bounces
+   * @throws {ApiException} If an API error occurs
+   */
+  async list() {
+    const data = await this.client.get('bounces');
+    return new BounceCollection(data);
   }
 
   /**
@@ -50,5 +63,16 @@ export class BouncesClient {
    */
   async deleteRegexByHash(regexHash) {
     return await this.client.delete(`bounces/regex/${encodeURIComponent(regexHash)}`);
+  }
+
+  /**
+   * Delete a bounce by its id.
+   *
+   * @param {string} bounceId - The bounce id
+   * @returns {Promise<Object>} Empty response on success
+   * @throws {ApiException} If an API error occurs
+   */
+  async deleteById(bounceId) {
+    return await this.client.delete(`bounces/${encodeURIComponent(bounceId)}`);
   }
 }
