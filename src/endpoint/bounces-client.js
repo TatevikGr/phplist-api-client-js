@@ -27,11 +27,14 @@ export class BouncesClient {
    * @returns {Promise<BounceCollection>} The list of bounces
    * @throws {ApiException} If an API error occurs
    */
-  async list(afterId = null, limit = 25) {
+  async list(afterId = null, limit = 25, status = null) {
     const queryParams = { limit };
 
     if (afterId !== null) {
       queryParams.after_id = afterId;
+    }
+    if (status !== null) {
+      queryParams.status = status
     }
     const data = await this.client.get('bounces', queryParams);
     return new BounceCollection(data);
