@@ -41,6 +41,26 @@ export class BouncesClient {
   }
 
   /**
+   * Get a list of bounce counts by campaign.
+   *
+   * @returns {Promise<Array<{message_id: number, subject: string, total_bounces: number}>>} Raw API response
+   * @throws {ApiException} If an API error occurs
+   */
+  async listByCampaign() {
+    return await this.client.get('bounces/by/campaign');
+  }
+
+  /**
+   * Get a list of bounce counts by subscriber.
+   *
+   * @returns {Promise<Array<{subscriber_id: number, email: string, confirmed: boolean, blacklisted: boolean, total_bounces: number}>>} Raw API response
+   * @throws {ApiException} If an API error occurs
+   */
+  async listBySubscriber() {
+    return await this.client.get('bounces/by/subscriber');
+  }
+
+  /**
    * Create or update a bounce regex rule.
    *
    * @param {Object} data - Keys: regex (required), action?, list_order?, admin?, comment?, status?
