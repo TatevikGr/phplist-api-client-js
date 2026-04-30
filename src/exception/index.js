@@ -14,6 +14,13 @@ export class AuthenticationException extends ApiException {
   }
 }
 
+export class AuthorizationException extends ApiException {
+  constructor(message, status = null, responseData = null) {
+    super(message, status, responseData);
+    this.name = 'AuthorizationException';
+  }
+}
+
 export class NotFoundException extends ApiException {
   constructor(message, status = null, responseData = null) {
     super(message, status, responseData);

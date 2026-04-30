@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   ApiException,
   AuthenticationException,
+  AuthorizationException,
   NotFoundException,
   ValidationException
 } from './exception/index.js';
@@ -15,15 +16,23 @@ export class Client {
    * @param {Object} [logger=console] - Logger instance
    */
   constructor(baseUrl, config = {}, logger = console) {
+    const {
+      onAuthenticationError = null,
+      ...axiosConfig
+    } = config;
+
     this.baseUrl = baseUrl.replace(/\/+$/, '');
     this.logger = logger;
     this.sessionId = null;
     this.id = null;
+    this.onAuthenticationError = typeof onAuthenticationError === 'function'
+        ? onAuthenticationError
+        : null;
 
     this.axiosInstance = axios.create({
       baseURL: `${this.baseUrl}/api/v2`,
-      timeout: config.timeout || 30000,
-      ...config
+      timeout: axiosConfig.timeout || 30000,
+      ...axiosConfig
     });
   }
 
@@ -76,6 +85,11 @@ export class Client {
 
   getId() {
     return this.id;
+  }
+
+  setOnAuthenticationError(callback) {
+    this.onAuthenticationError = typeof callback === 'function' ? callback : null;
+    return this;
   }
 
   async get(endpoint, queryParams = {}, headers = {}) {
@@ -218,8 +232,13 @@ export class Client {
       const { status, data } = error.response;
       const message = data?.message || error.message;
 
-      if (status === 401 || status === 403) {
-        return new AuthenticationException(message, status, data);
+      if (status === 401) {
+        const authException = new AuthenticationException(message, status, data);
+        this._notifyAuthenticationError(authException, error);
+        return authException;
+      }
+      if (status === 403) {
+        return new AuthorizationException(message, status, data);
       }
       if (status === 404) {
         return new NotFoundException(message, status, data);
@@ -232,5 +251,17 @@ export class Client {
     }
 
     return new DefaultException(error.message);
+  }
+
+  _notifyAuthenticationError(authException, originalError) {
+    if (!this.onAuthenticationError) {
+      return;
+    }
+
+    try {
+      this.onAuthenticationError(authException, originalError, this);
+    } catch (callbackError) {
+      this.logger.error(`onAuthenticationError callback failed: ${callbackError.message}`);
+    }
   }
 }
