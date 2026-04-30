@@ -74,23 +74,23 @@ export class BouncesClient {
   /**
    * Get a bounce regex rule by its hash.
    *
-   * @param {string} regexHash - The regex hash
+   * @param {int} ruleId - The rule id
    * @returns {Promise<Object>} The regex data
    * @throws {ApiException} If an API error occurs
    */
-  async getRegexByHash(regexHash) {
-    return await this.client.get(`bounces/regex/${encodeURIComponent(regexHash)}`);
+  async getRegexById(ruleId) {
+    return await this.client.get(`bounces/regex/${encodeURIComponent(ruleId)}`);
   }
 
   /**
    * Delete a bounce regex rule by its hash.
    *
-   * @param {string} regexHash - The regex hash
+   * @param {int} ruleId - The rule id
    * @returns {Promise<Object>} Empty response on success
    * @throws {ApiException} If an API error occurs
    */
-  async deleteRegexByHash(regexHash) {
-    return await this.client.delete(`bounces/regex/${encodeURIComponent(regexHash)}`);
+  async deleteRegexById(ruleId) {
+    return await this.client.delete(`bounces/regex/${encodeURIComponent(ruleId)}`);
   }
 
   /**
