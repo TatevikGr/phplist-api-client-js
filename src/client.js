@@ -18,6 +18,7 @@ export class Client {
   constructor(baseUrl, config = {}, logger = console) {
     const {
       onAuthenticationError = null,
+      onAuthorizationError = null,
       ...axiosConfig
     } = config;
 
@@ -27,6 +28,9 @@ export class Client {
     this.id = null;
     this.onAuthenticationError = typeof onAuthenticationError === 'function'
         ? onAuthenticationError
+        : null;
+    this.onAuthorizationError = typeof onAuthorizationError === 'function'
+        ? onAuthorizationError
         : null;
 
     this.axiosInstance = axios.create({
@@ -89,6 +93,11 @@ export class Client {
 
   setOnAuthenticationError(callback) {
     this.onAuthenticationError = typeof callback === 'function' ? callback : null;
+    return this;
+  }
+
+  setOnAuthorizationError(callback) {
+    this.onAuthorizationError = typeof callback === 'function' ? callback : null;
     return this;
   }
 
@@ -238,7 +247,9 @@ export class Client {
         return authException;
       }
       if (status === 403) {
-        return new AuthorizationException(message, status, data);
+        const authException = new AuthorizationException(message, status, data);
+        this._notifyAuthorizationError(authException, error);
+        return authException;
       }
       if (status === 404) {
         return new NotFoundException(message, status, data);
@@ -262,6 +273,18 @@ export class Client {
       this.onAuthenticationError(authException, originalError, this);
     } catch (callbackError) {
       this.logger.error(`onAuthenticationError callback failed: ${callbackError.message}`);
+    }
+  }
+
+  _notifyAuthorizationError(authException, originalError) {
+    if (!this.onAuthorizationError) {
+      return;
+    }
+
+    try {
+      this.onAuthorizationError(authException, originalError, this);
+    } catch (callbackError) {
+      this.logger.error(`onAuthorizationError callback failed: ${callbackError.message}`);
     }
   }
 }

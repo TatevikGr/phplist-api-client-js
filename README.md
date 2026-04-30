@@ -44,6 +44,10 @@ const client = new Client('https://your-phplist-instance.com', {
   onAuthenticationError: (authError) => {
     console.error(`Authentication error (${authError.status}): ${authError.message}`);
     // e.g. clear local auth state / trigger re-login flow
+  },
+  onAuthorizationError: (authError) => {
+    console.error(`Authorization error (${authError.status}): ${authError.message}`);
+    // e.g. clear local auth state / trigger re-login flow
   }
 });
 ```
@@ -53,6 +57,9 @@ You can also set or replace the authentication hook later:
 ```javascript
 client.setOnAuthenticationError((authError, originalError, clientInstance) => {
   // central place for 401 handling
+});
+client.setOnAuthorizationError((authError, originalError, clientInstance) => {
+    // central place for 403 handling
 });
 ```
 
