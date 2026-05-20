@@ -1,4 +1,5 @@
 import { SubscribePage } from '../entity/subscribe-page.js';
+import { SubscribePageCollection } from "../response/subscribe-page-collection.js";
 
 /**
  * Client for subscribe page-related API endpoints.
@@ -22,6 +23,25 @@ export class SubscribePagesClient {
   async getSubscribePage(id) {
     const data = await this.client.get(`subscribe-pages/${id}`);
     return new SubscribePage(data);
+  }
+
+  /**
+   * Get a list of subscription pages.
+   *
+   * @param {number|null} [afterId=null] - The ID to start from for pagination
+   * @param {number} [limit=25] - The maximum number of items to return
+   * @returns {Promise<SubscribePageCollection>} The list of attribute definitions
+   * @throws {ApiException} If an API error occurs
+   */
+  async getSubscribePages(afterId = null, limit = 25) {
+    const queryParams = { limit };
+
+    if (afterId !== null) {
+      queryParams.after_id = afterId;
+    }
+
+    const data = await this.client.get('subscribe-pages', queryParams);
+    return new SubscribePageCollection(data);
   }
 
   /**
