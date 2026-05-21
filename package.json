@@ -1,7 +1,7 @@
 {
   "name": "@tatevikgr/rest-api-client",
   "repository": "github:TatevikGr/phplist-api-client-js",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "type": "module",
   "description": "JavaScript client for the phpList REST API",
   "main": "index.js",
