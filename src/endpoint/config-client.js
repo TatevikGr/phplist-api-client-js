@@ -1,4 +1,4 @@
-import ConfigCollection from "../response/config-collectio-response.js";
+import ConfigCollection from "../response/config-collection-response.js";
 import Config from "../entity/config.js";
 
 export class ConfigClient {
