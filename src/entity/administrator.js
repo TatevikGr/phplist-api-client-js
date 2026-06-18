@@ -7,7 +7,7 @@ export class Administrator {
     this.loginName = data.login_name || '';
     this.email = data.email || '';
     this.superUser = !!data.super_user;
-    this.privileges = Array.isArray(data.privileges) ? data.privileges : [];
+    this.privileges = data.privileges || {};
     this.createdAt = data.created_at || '';
   }
 }
