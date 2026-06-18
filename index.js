@@ -14,6 +14,7 @@ import { SubscriberAttributesClient } from './src/endpoint/subscriber-attributes
 import { SubscribersClient } from './src/endpoint/subscribers-client.js';
 import { SubscriptionClient } from './src/endpoint/subscription-client.js';
 import { TemplatesClient } from './src/endpoint/templates-client.js';
+import { ConfigClient } from './src/endpoint/config-client.js';
 import * as Exceptions from './src/exception/index.js';
 import { Administrator } from './src/entity/administrator.js';
 import { Subscriber } from './src/entity/subscriber.js';
@@ -21,6 +22,7 @@ import * as Requests from './src/request/index.js';
 
 export {
   Client,
+  ConfigClient,
   AuthClient,
   AdminAttributeClient,
   AdminClient,
