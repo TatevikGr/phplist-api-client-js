@@ -10,5 +10,6 @@ export class SubscriberAttributeDefinition {
     this.defaultValue = data.default_value || null;
     this.description = data.description || null;
     this.listOrder = data.list_order !== undefined ? Number(data.list_order) : null;
+    this.options = data.options || null;
   }
 }
