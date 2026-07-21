@@ -15,6 +15,7 @@ import { SubscribersClient } from './src/endpoint/subscribers-client.js';
 import { SubscriptionClient } from './src/endpoint/subscription-client.js';
 import { TemplatesClient } from './src/endpoint/templates-client.js';
 import { ConfigClient } from './src/endpoint/config-client.js';
+import { UploadsClient } from './src/endpoint/uploads-client.js';
 import * as Exceptions from './src/exception/index.js';
 import { Administrator } from './src/entity/administrator.js';
 import { Subscriber } from './src/entity/subscriber.js';
@@ -38,6 +39,7 @@ export {
   SubscribersClient,
   SubscriptionClient,
   TemplatesClient,
+  UploadsClient,
   Exceptions,
   Requests,
   Administrator,
