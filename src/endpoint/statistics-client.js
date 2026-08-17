@@ -1,7 +1,10 @@
 import {
   CampaignStatisticsCollection,
   ViewOpensCollection,
-  TopDomainsCollection
+  TopDomainsCollection,
+  DashboardSummaryResponse,
+  RecentCampaignsCollection,
+  CampaignPerformanceCollection
 } from '../response/index.js';
 import { DomainConfirmation } from '../entity/statistics/domain-confirmation.js';
 import { TopLocalPart } from '../entity/statistics/top-local-part.js';
@@ -100,5 +103,38 @@ export class StatisticsClient {
 
     const data = await this.client.get('analytics/local-parts/top', queryParams);
     return new TopLocalPart(data);
+  }
+
+  /**
+   * Get dashboard summary statistics.
+   *
+   * @returns {Promise<DashboardSummaryResponse>} The dashboard summary statistics
+   * @throws {ApiException} If an API error occurs
+   */
+  async getDashboardSummary() {
+    const data = await this.client.get('analytics/dashboard/summary');
+    return new DashboardSummaryResponse(data);
+  }
+
+  /**
+   * Get the recent campaigns dashboard data.
+   *
+   * @returns {Promise<RecentCampaignsCollection>} The recent campaigns
+   * @throws {ApiException} If an API error occurs
+   */
+  async getRecentCampaigns() {
+    const data = await this.client.get('analytics/dashboard/recent-campaigns');
+    return new RecentCampaignsCollection(data);
+  }
+
+  /**
+   * Get the campaign performance dashboard data.
+   *
+   * @returns {Promise<CampaignPerformanceCollection>} The campaign performance data points
+   * @throws {ApiException} If an API error occurs
+   */
+  async getCampaignPerformance() {
+    const data = await this.client.get('analytics/dashboard/performance');
+    return new CampaignPerformanceCollection(data);
   }
 }
