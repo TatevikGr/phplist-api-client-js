@@ -18,10 +18,12 @@ export class CampaignClient {
    * @param {number|null} [afterId=null] - The ID to start from for pagination
    * @param {number} [limit=25] - The maximum number of items to return
    * @param {string|null} [subject=null] - The subject filter for campaigns
+   * @param {string|null} [status=null] - Filter by one or more comma-separated statuses
+   * @param {string} [sort='asc'] - Sort direction by campaign id - 'asc' or 'desc'
    * @returns {Promise<CampaignCollection>} The list of campaigns
    * @throws {ApiException} If an API error occurs
    */
-  async getCampaigns(afterId = null, limit = 25, subject = null) {
+  async getCampaigns(afterId = null, limit = 25, subject = null, status = null, sort = 'asc') {
     const queryParams = { limit };
 
     if (afterId !== null) {
@@ -30,6 +32,14 @@ export class CampaignClient {
 
     if (subject !== null) {
       queryParams.subject = subject;
+    }
+
+    if (status !== null) {
+      queryParams.status = status;
+    }
+
+    if (sort !== 'asc') {
+      queryParams.sort = sort;
     }
 
     const data = await this.client.get('campaigns', queryParams);
