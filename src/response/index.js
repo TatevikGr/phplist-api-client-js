@@ -16,6 +16,7 @@ export { AdminAttributeValueCollection } from './admin/admin-attribute-value-col
 
 // Campaign
 export { CampaignCollection } from './campaign/campaign-collection.js';
+export { StuckCampaignCollection } from './campaign/stuck-campaign-collection.js';
 
 // Bounces
 export { BounceCollection } from './bounces/bounce-collection.js';

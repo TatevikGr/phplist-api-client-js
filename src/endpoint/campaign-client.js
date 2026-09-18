@@ -1,5 +1,5 @@
 import { Campaign } from '../entity/campaign.js';
-import { CampaignCollection } from '../response/index.js';
+import { CampaignCollection, StuckCampaignCollection } from '../response/index.js';
 
 /**
  * Client for campaign-related API endpoints.
@@ -145,5 +145,29 @@ export class CampaignClient {
    */
   async testSendCampaign(id, emails) {
     await this.client.post(`campaigns/${id}/test-send`, { emails: emails });
+  }
+
+  /**
+   * Resume a campaign stuck in processing.
+   *
+   * @param {number} id - The campaign ID
+   * @returns {Promise<Campaign>} The resumed campaign
+   * @throws {NotFoundException} If the campaign is not found
+   * @throws {ApiException} If an API error occurs, e.g. the campaign is not currently stuck in processing
+   */
+  async resumeCampaign(id) {
+    const data = await this.client.post(`campaigns/${id}/resume`);
+    return new Campaign(data);
+  }
+
+  /**
+   * Get a list of campaigns stuck in processing.
+   *
+   * @returns {Promise<StuckCampaignCollection>} The list of stuck campaigns
+   * @throws {ApiException} If an API error occurs
+   */
+  async getStuckCampaigns() {
+    const data = await this.client.get('campaigns/stuck');
+    return new StuckCampaignCollection(data);
   }
 }
