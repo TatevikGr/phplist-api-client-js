@@ -122,11 +122,7 @@ export class SubscriptionClient {
    */
   async deleteSubscription(emails, listId) {
     const query = {};
-    if (emails.length === 1) {
-      query.emails = emails[0];
-    } else {
-      query.emails = emails;
-    }
+    query.emails = emails;
 
     await this.client.delete(`lists/${listId}/subscribers`, query);
   }
