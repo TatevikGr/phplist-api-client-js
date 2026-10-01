@@ -1,12 +1,22 @@
+class DomainConfirmationBreakdown {
+  /**
+   * @param {Object} data
+   */
+  constructor(data = {}) {
+    this.count = data.count !== undefined ? Number(data.count) : 0;
+    this.percentage = data.percentage !== undefined ? Number(data.percentage) : 0;
+  }
+}
+
 export class DomainConfirmation {
   /**
    * @param {Object} data
    */
-  constructor(data) {
+  constructor(data = {}) {
     this.domain = data.domain || '';
-    this.total = data.total !== undefined ? Number(data.total) : 0;
-    this.confirmed = data.confirmed !== undefined ? Number(data.confirmed) : 0;
-    this.unconfirmed = data.unconfirmed !== undefined ? Number(data.unconfirmed) : 0;
-    this.confirmationRate = data.confirmation_rate !== undefined ? Number(data.confirmation_rate) : 0.0;
+    this.confirmed = new DomainConfirmationBreakdown(data.confirmed);
+    this.unconfirmed = new DomainConfirmationBreakdown(data.unconfirmed);
+    this.blacklisted = new DomainConfirmationBreakdown(data.blacklisted);
+    this.total = new DomainConfirmationBreakdown(data.total);
   }
 }

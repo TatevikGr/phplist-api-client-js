@@ -6,8 +6,8 @@ import {
   RecentCampaignsCollection,
   CampaignPerformanceCollection,
   TopLocalPartsCollection,
+  DomainConfirmationCollection,
 } from '../response/index.js';
-import { DomainConfirmation } from '../entity/statistics/domain-confirmation.js';
 
 /**
  * Client for statistics and analytics-related API endpoints.
@@ -81,14 +81,14 @@ export class StatisticsClient {
    * Get domain confirmation statistics.
    *
    * @param {number} [limit=50] - Maximum number of domains to return
-   * @returns {Promise<DomainConfirmation>} The domain confirmation statistics
+   * @returns {Promise<DomainConfirmationCollection>} The domain confirmation statistics
    * @throws {ApiException} If an API error occurs
    */
   async getDomainConfirmationStatistics(limit = 50) {
     const queryParams = { limit };
 
     const data = await this.client.get('analytics/domains/confirmation', queryParams);
-    return new DomainConfirmation(data);
+    return new DomainConfirmationCollection(data);
   }
 
   /**
