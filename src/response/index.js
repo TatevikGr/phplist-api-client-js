@@ -25,6 +25,7 @@ export { BounceCollection } from './bounces/bounce-collection.js';
 export { CampaignStatisticsCollection } from './statistics/campaign-statistics-collection.js';
 export { ViewOpensCollection } from './statistics/view-opens-collection.js';
 export { TopDomainsCollection } from './statistics/top-domains-collection.js';
+export { TopLocalPartsCollection } from './statistics/top-local-parts-collection.js';
 export { DashboardSummaryResponse } from './statistics/dashboard-summary-response.js';
 export { RecentCampaignsCollection } from './statistics/recent-campaigns-collection.js';
 export { CampaignPerformanceCollection } from './statistics/campaign-performance-collection.js';

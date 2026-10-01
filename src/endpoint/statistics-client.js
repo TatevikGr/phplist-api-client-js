@@ -4,10 +4,10 @@ import {
   TopDomainsCollection,
   DashboardSummaryResponse,
   RecentCampaignsCollection,
-  CampaignPerformanceCollection
+  CampaignPerformanceCollection,
+  TopLocalPartsCollection,
 } from '../response/index.js';
 import { DomainConfirmation } from '../entity/statistics/domain-confirmation.js';
-import { TopLocalPart } from '../entity/statistics/top-local-part.js';
 
 /**
  * Client for statistics and analytics-related API endpoints.
@@ -95,14 +95,14 @@ export class StatisticsClient {
    * Get top local-parts statistics.
    *
    * @param {number} [limit=25] - Maximum number of local-parts to return
-   * @returns {Promise<TopLocalPart>} The top local-parts statistics
+   * @returns {Promise<TopLocalPartsCollection>} The top local-parts statistics
    * @throws {ApiException} If an API error occurs
    */
   async getTopLocalParts(limit = 25) {
     const queryParams = { limit };
 
     const data = await this.client.get('analytics/local-parts/top', queryParams);
-    return new TopLocalPart(data);
+    return new TopLocalPartsCollection(data);
   }
 
   /**
